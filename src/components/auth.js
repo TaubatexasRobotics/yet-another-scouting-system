@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { auth } from "../config/Firebase.js"
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { auth } from "../config/Firebase.js";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { signOut } from "firebase/auth";
 
 export const Auth = () =>{
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -12,23 +14,23 @@ export const Auth = () =>{
         }catch(err){
             console.error(err);
         };
-
-
-    // const signOut = async () =>{
-    //     try{
-    //         await signOut(auth)
-    //     }catch(err){
-    //         console.error(err);
-    //     };
     };
 
 
-
+    const logOut = async () =>{
+        try{
+            await signOut(auth)
+        }catch(err){
+            console.error(err);
+        };
+    };
+    
     return (
     <div>
         <input placeholder="Email" onChange= {(e) => setEmail(e.target.value)}/>
-        <input placeholder="Password" onChange= {(e) => setPassword(e.target.value)}/>
+        <input placeholder="Password(at least 8 char)" onChange= {(e) => setPassword(e.target.value)}/>
         <button onClick={signIn}>Sign in</button>
+        <button onClick={logOut}>logOut</button>
     </div>
     );
 };
