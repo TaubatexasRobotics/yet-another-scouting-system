@@ -13,8 +13,8 @@ function App() {
     const getTeamList = async () =>{
 
       try{
-      const data = await getDocs()
-      console.log(data());
+      const data = await getDocs(teamsCollectionRef)
+      console.log((data));
       }catch (err){
         console.error(err)
       }
