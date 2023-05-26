@@ -14,7 +14,8 @@ function App() {
 
       try{
       const data = await getDocs(teamsCollectionRef)
-      console.log((data));
+      const filteredData = data.docs.map((doc) => ({...doc.data()}));
+      setTeamList(filteredData);
       }catch (err){
         console.error(err)
       }
@@ -26,6 +27,19 @@ function App() {
   return (
     <div className='app'>
       <Auth/>
+      <div>
+        {teamList.map((teams) => (
+          <div>
+            <h1>{teams.FrcCode}</h1>
+            <h2>Habilidades</h2>
+            <p>{teams.Habilidades}</p>
+            <h2>Debilidades</h2>
+            <p>{teams.Debilidades}</p>
+            <h2>Comportamentos gerais</h2>
+            <p>{teams.Behaviours}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

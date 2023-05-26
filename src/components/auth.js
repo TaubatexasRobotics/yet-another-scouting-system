@@ -35,7 +35,7 @@ export const Auth = () =>{
             };
     };
 
-    console.log(auth?.currentUser?.email);
+    //console.log(auth?.currentUser?.email);
 
     return (
     <div>
