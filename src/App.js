@@ -1,12 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import Forms from "./components/Forms.jsx";
+import Teleoperated from "./components/Teleoperated.jsx";
 
 function App() {
   return (
     <div className='app'>
-      <Forms />
+      <Teleoperated />
     </div>
   );
 }
