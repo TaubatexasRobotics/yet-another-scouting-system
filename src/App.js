@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import './App.css';
 import { useEffect, useState } from 'react';
 import Teleoperated from "./components/Teleoperated.jsx";
 
